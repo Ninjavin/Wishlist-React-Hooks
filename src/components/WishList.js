@@ -3,9 +3,7 @@ import { WishContext } from '../WishContext';
 
 function WishList() {
 
-	const { value3 } = useContext(WishContext);
-
-	const [wishlist, setWishlist] = value3;
+	const [wishlist, setWishlist] = useContext(WishContext);
 	
 	return (
 		<div>

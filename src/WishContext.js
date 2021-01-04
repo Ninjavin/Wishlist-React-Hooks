@@ -16,12 +16,10 @@ export const WishProvider = (props) => {
 		getAllWish();
 	}, [])
 
-	const [wish, setWish] = useState("");
-	const [link, setLink] = useState("");
 	const [wishlist, setWishlist] = useState([]);
 
 	return(
-		<WishContext.Provider value={ {value1: [wish, setWish], value2: [link, setLink], value3: [wishlist,setWishlist]} }>
+		<WishContext.Provider value={[wishlist, setWishlist]}>
 			{props.children}
 		</WishContext.Provider>
 	)
