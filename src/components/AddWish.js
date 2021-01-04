@@ -1,17 +1,27 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { WishContext } from '../WishContext';
 
 function AddWish() {
+	const { value1, value2, value3 } = useContext(WishContext);
+	const [wish, setWish] = value1;
+	const [link, setLink] = value2;
+	const [wishlist, setWishlist] = value3;
 
-	const [wish, setWish] = useState("");
-	const [link, setLink] = useState("");
+	function getAllWish() {
+		axios.get('https://5ff1b13ddb1158001748b4b2.mockapi.io/wishlist/add')
+		.then(res => {
+			setWishlist(res.data);
+		})
+	}
 
 	const addWishToAPI = (wish, link) => {
 		axios.post('https://5ff1b13ddb1158001748b4b2.mockapi.io/wishlist/add', {
 			wishItem: wish,
 			wishLink: link
-		}).then((res) => console.log(res))
-			.catch((err) => console.log(err))
+		}).then((res) => {
+			getAllWish();
+		}).catch((err) => console.log(err))
 	}
 
 	return (

@@ -1,5 +1,12 @@
-function WishList(props) {
-	const wishlist = props.wish;
+import { useContext } from 'react';
+import { WishContext } from '../WishContext';
+
+function WishList() {
+
+	const { value3 } = useContext(WishContext);
+
+	const [wishlist, setWishlist] = value3;
+	
 	return (
 		<div>
 			<h3>Your Wishlist</h3>
