@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { WishContext } from '../WishContext';
+import './AddWish.css';
 
 function AddWish() {
 	const [wishlist, setWishlist] = useContext(WishContext);
@@ -28,16 +29,18 @@ function AddWish() {
 			wishItem: wish,
 			wishLink: link
 		}).then(() => {
+			setWish("");
+			setLink("");
 			getAllWish();
 		}).catch((err) => console.log(err))
 	}
 
 	return (
-		<div>
-			<form onSubmit={addWishToAPI}>
-				<input type="text" name="wishitem" value={wish} placeholder="Enter Wishitem" onChange={updateWish} />
-				<input type="text" name="wishlink" value={link} placeholder="Link to buy" onChange={updateLink} />
-				<button>Add</button>
+		<div className="add-wish">
+			<form className="wish-form" onSubmit={addWishToAPI}>
+				<input className="form-input wish-input" type="text" name="wishitem" value={wish} placeholder="Enter Wishitem" onChange={updateWish} />
+				<input className="form-input link-input" type="text" name="wishlink" value={link} placeholder="Link to buy" onChange={updateLink} />
+				<button className="form-submit">Add</button>
 			</form>
 		</div>
 	)

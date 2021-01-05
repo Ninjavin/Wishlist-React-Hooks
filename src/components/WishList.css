@@ -1,0 +1,41 @@
+.wishlist {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 50%;
+	margin: 20px auto;
+}
+
+.wishlist-head {
+	color: #4285F4;
+	font-size: 24px;
+	font-weight: bolder;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.wishlist-ul {
+	font-size: 18px;
+	text-align: left;
+	list-style: none;
+	line-height: 2rem;
+}
+
+ul li::before {
+  content: "✅";
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #DB4437;
+	
+}
+
+.delete-wish {
+	float: right;
+}
